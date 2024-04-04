@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Модель данных для MyInfoRowView
 class MyInfoRowModel: Identifiable {
     
     let id = UUID().uuidString

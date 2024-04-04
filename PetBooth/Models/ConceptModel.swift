@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Модель данных для ConceptView
 class ConceptModel: Identifiable {
     let id = UUID().uuidString
     let image: String

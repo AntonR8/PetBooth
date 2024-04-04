@@ -6,15 +6,15 @@
 //
 
 import Foundation
-import Observation
 import PhotosUI
 import SwiftUI
 
-@Observable
-class UploadedPhotosViewModel {
-    var petsName: String = ""
-    var uploadedImages: [UIImage] = []
-    var selectedItems: [PhotosPickerItem] = [] {
+
+// ViewModel для данных, загружемых пользователем
+class UploadedPhotosViewModel: ObservableObject {
+    @Published var petsName: String = "" // имя питомца
+    @Published var uploadedImages: [UIImage] = [] // загруженные изображения
+    @Published var selectedItems: [PhotosPickerItem] = [] { // изображения, отмеченные для загрузки
         didSet {
             Task{
                 var array: [UIImage] = []
@@ -34,10 +34,6 @@ class UploadedPhotosViewModel {
                 }
             }
         }
-    }
-    
-    func savePetsName(petsName: String) {
-        self.petsName = petsName
     }
 }
 

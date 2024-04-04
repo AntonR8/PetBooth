@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Модель данных для ExamplePhotosView
 class PhotoExampleModel: Identifiable {
     let id = UUID().uuidString
     let image: String
