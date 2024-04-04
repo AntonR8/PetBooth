@@ -29,41 +29,39 @@ struct UploadPhotosView: View {
                             .foregroundStyle(.secondary)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding()
-                        
+
                         Text("This photo cannot be used. Please choose another photo.")
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding(.horizontal)
 
-                        UploadedPhotoGrid(photos: uploadedPhotosViewModel.uploadedImages, suitable: false)
+                    UploadedPhotoGrid(photos: uploadedPhotosViewModel.uploadedImages, suitable: false)
 
-                        Text("").padding()
-
+                    Text("").padding()
+                    
 
                         Text("This photo is suitable for use.")
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding(.horizontal)
 
-                        UploadedPhotoGrid(photos: uploadedPhotosViewModel.uploadedImages, suitable: true)
-                    }
-                    HStack{
-                        PhotosPicker(
-                            selection: $uploadedPhotosViewModel.selectedItems,
-                            matching: .images
-                        ) {
-                            switch uploadedPhotosViewModel.uploadedImages.isEmpty {
-                            case true: RedButton(title: .addPhoto)
-                            case false: StrokeButton(title: .addPhoto)
-                            }
-                        }
-                        if !uploadedPhotosViewModel.uploadedImages.isEmpty {
+                    UploadedPhotoGrid(photos: uploadedPhotosViewModel.uploadedImages, suitable: true)
+
+                        HStack{
+                            PhotosPicker(
+                                selection: $uploadedPhotosViewModel.selectedItems,
+                                matching: .images
+                            ) {
+                                StrokeButton(title: .addPhoto)
+                                    }
                             NavigationLink(destination: CreateAlbumView(uploadedPhotosViewModel: uploadedPhotosViewModel)) {
                                 RedButton(title: .uploadPhotos)
                             }
                         }
+                        .padding()
                     }
-                    .padding()
                 })
+
             }
+
         }
     }
 }

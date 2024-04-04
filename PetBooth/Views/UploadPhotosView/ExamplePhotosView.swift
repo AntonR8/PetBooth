@@ -42,20 +42,12 @@ struct ExamplePhotosView: View {
             ExamplePhotoGrid(photos: vm.goodExanples)
             Text("")
                 .frame(height: 50)
-
-            PhotosPicker(
-                selection: $selectedItems,
-                matching: .images
-            ) {
-                RedButton(title: .addPhoto)
-            }
         }
         .padding()
     }
 }
 
 
-// MARK: - Preview
 #Preview {
     ScrollView{
         ExamplePhotosView(selectedItems: .constant([]))

@@ -51,7 +51,7 @@ final class ViewModel {
 
         self.badExamples = [
             PhotoExampleModel(image: "Humans in the photo", text: "Humans in the photo", isAppropriate: false),
-            PhotoExampleModel(image: "Covered  face / body", text: "Covered  face / body", isAppropriate: false),
+            PhotoExampleModel(image: "Covered face body", text: "Covered  face / body", isAppropriate: false),
             PhotoExampleModel(image: "More than one pet", text: "More than one pet", isAppropriate: false),
             PhotoExampleModel(image: "Too far away", text: "Too far away", isAppropriate: false),
         ]
@@ -59,7 +59,7 @@ final class ViewModel {
         self.goodExanples = [
             PhotoExampleModel(image: "Close-up front shots", text: "Close-up front shots", isAppropriate: true),
             PhotoExampleModel(image: "Clear full-body shots", text: "Clear full-body shots", isAppropriate: false),
-            PhotoExampleModel(image: "Frame 41950", text: "Same and only pet", isAppropriate: false),
+            PhotoExampleModel(image: "Same and only pet", text: "Same and only pet", isAppropriate: false),
             PhotoExampleModel(image: "From various angles", text: "From various angles", isAppropriate: true),
         ]
         

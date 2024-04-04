@@ -257,6 +257,7 @@
 			children = (
 				1237F5C72BBD76E60042822E /* Elements */,
 				1236AFAE2BB44CE40094D611 /* ExamplePhotosView.swift */,
+				1236AFB22BB5672A0094D611 /* UploadPhotosView.swift */,
 			);
 			path = UploadPhotosView;
 			sourceTree = "<group>";
@@ -275,7 +276,6 @@
 			children = (
 				1237F5C52BBD6CF10042822E /* UploadedPhotoGrid.swift */,
 				1237F5C32BBD65C30042822E /* ExamplePhotoGrid.swift */,
-				1236AFB22BB5672A0094D611 /* UploadPhotosView.swift */,
 			);
 			path = Elements;
 			sourceTree = "<group>";
