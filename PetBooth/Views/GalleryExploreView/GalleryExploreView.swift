@@ -9,8 +9,6 @@ import SwiftUI
 import SwiftData
 
 struct GalleryExploreView: View {
-
-    var uploadedPhotosViewModel: UploadedPhotosViewModel
     let vm = ViewModel()
     
     @State var selection = 2 
@@ -21,11 +19,7 @@ struct GalleryExploreView: View {
         NavigationView {
             ZStack {
                 switch selection {
-                case 1:
-                    switch uploadedPhotosViewModel.uploadedImages.isEmpty {
-                    case true: AddImagesView()
-                    case false: AlbumCoverView(uploadedPhotosViewModel: uploadedPhotosViewModel)
-                    }
+                case 1: AddImagesView()
                 case 2: ExploreView(selection: $selection)
                 default: EmptyView()
                 }
@@ -39,6 +33,6 @@ struct GalleryExploreView: View {
 }
 
 #Preview {
-    GalleryExploreView(uploadedPhotosViewModel: UploadedPhotosViewModel())
+    GalleryExploreView()
 }
 

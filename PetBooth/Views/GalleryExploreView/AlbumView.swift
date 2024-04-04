@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 16.0, *)
 struct AlbumView: View {
     var  uploadedPhotosViewModel: UploadedPhotosViewModel
     let text: String
@@ -25,6 +26,6 @@ struct AlbumView: View {
     }
 }
 
-#Preview {
-    AlbumView(uploadedPhotosViewModel: UploadedPhotosViewModel(), text: "Cartoon Characters")
-}
+//#Preview {
+//        AlbumView(uploadedPhotosViewModel: UploadedPhotosViewModel(), text: "Cartoon Characters")
+//}

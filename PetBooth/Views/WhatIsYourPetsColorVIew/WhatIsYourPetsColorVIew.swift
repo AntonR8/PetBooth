@@ -46,10 +46,18 @@ struct WhatIsYourPetsColorVIew: View {
 
                 Spacer()
 
-                NavigationLink(destination: UploadPhotosView()) {
-                    RedButton(title: .continueTitle, color: chosenColor == nil ? .gray : .myRed)
+                if #available(iOS 16.0, *) {
+                    NavigationLink(destination: UploadPhotosViewiOS16()) {
+                        RedButton(title: .continueTitle, color: chosenColor == nil ? .gray : .myRed)
+                    }
+                    .disabled(chosenColor == nil)
+                } else {
+                    // Fallback on earlier versions
+                    NavigationLink(destination: UploadPhotosViewiOS15()) {
+                        RedButton(title: .continueTitle, color: chosenColor == nil ? .gray : .myRed)
+                    }
+                    .disabled(chosenColor == nil)
                 }
-                .disabled(chosenColor == nil)
 
 
             }

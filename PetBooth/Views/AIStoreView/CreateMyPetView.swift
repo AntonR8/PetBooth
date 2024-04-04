@@ -37,7 +37,7 @@ struct CreateMyPetView: View {
                             .font(.subheadline)
                             .padding(.horizontal)
                             .multilineTextAlignment(.center)
-                        NavigationLink(destination: MainTabView(selected: 2, uploadedPhotosViewModel: UploadedPhotosViewModel())) {
+                        NavigationLink(destination: MainTabView(selected: 2)) {
                             WhiteButton(title: .createWithMyPet)
                         }
 

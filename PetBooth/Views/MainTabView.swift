@@ -7,12 +7,11 @@
 
 import SwiftUI
 
-// переключение между вкладками с помощью tabView внизу
+// переключение между вкладками tabView
 struct MainTabView: View {
     @State var selected = 1
     var albumSelected: Int?
-    var uploadedPhotosViewModel: UploadedPhotosViewModel
-     
+
     var body: some View {
         TabView(selection: $selected) {
 
@@ -26,7 +25,7 @@ struct MainTabView: View {
 
             //MARK: - вкладка 2
 
-            GalleryExploreView(uploadedPhotosViewModel: uploadedPhotosViewModel, selection: albumSelected ?? 2)
+            GalleryExploreView(selection: albumSelected ?? 2)
                 .tabItem {
                     Image(systemName: "photo.artframe")
                     Text("Gallery")
@@ -49,5 +48,5 @@ struct MainTabView: View {
 }
 
 #Preview {
-    MainTabView(uploadedPhotosViewModel: UploadedPhotosViewModel())
+    MainTabView()
 }

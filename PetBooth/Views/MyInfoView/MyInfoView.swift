@@ -9,8 +9,7 @@ import SwiftUI
 
 struct MyInfoView: View {
     let vm = ViewModel()
-   @State var email = "sdfdsf"
-//    @AppStorage("email") var email = ""
+    @AppStorage("email") var email = ""
     @State var showSheet = false
 
     var body: some View {
@@ -37,10 +36,14 @@ struct MyInfoView: View {
                             RowView(image: row.image, text: row.text, amount: row.amount)
                         }
                     }
-
-                    if !email.isEmpty {
-                        Text("")
-                            .padding()
+                    Text("")
+                        .padding()
+                    switch email.isEmpty {
+                    case true:
+                        NavigationLink(destination: SignInView()) {
+                            RedButton(title: .signIn)
+                        }
+                    case false:
                         Button(action: {
                             email = ""
                         }, label: {
@@ -50,7 +53,7 @@ struct MyInfoView: View {
                         Button("Delete account") {
                             showSheet.toggle()
                         }
-                        .sheet(isPresented: $showSheet, content: { 
+                        .sheet(isPresented: $showSheet, content: {
                             DeleteAccountView()
                         })
                     }

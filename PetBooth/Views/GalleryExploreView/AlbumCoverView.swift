@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 16.0, *)
 struct AlbumCoverView: View {
     let myColumns = [
         GridItem(),
@@ -47,6 +48,6 @@ struct AlbumCoverView: View {
     }
 }
 
-#Preview {
-    AlbumCoverView(uploadedPhotosViewModel: UploadedPhotosViewModel())
-}
+//#Preview {
+//        AlbumCoverView(uploadedPhotosViewModel: UploadedPhotosViewModel())
+//}

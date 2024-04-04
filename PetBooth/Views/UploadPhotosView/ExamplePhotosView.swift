@@ -8,9 +8,7 @@
 import SwiftUI
 import PhotosUI
 
-@available(iOS 16.0, *)
 struct ExamplePhotosView: View {
-    @Binding var selectedItems: [PhotosPickerItem]
     var vm = ViewModel()
     
     var body: some View {
@@ -21,48 +19,34 @@ struct ExamplePhotosView: View {
                 .padding(.vertical, 6)
 
             Group {
-                Text("Might result in")
-                +  Text(" less likeness")
+                Text("Might result in").bold()
+                +  Text(" less likeness").bold()
                     .foregroundColor(.red)
             }
-            .bold()
             .frame(maxWidth: .infinity, alignment: .leading)
 
             ExamplePhotoGrid(photos: vm.badExamples)
 
             Text("").padding()
             Group {
-                Text("Good for ")
-                + Text("top-notch results")
+                Text("Good for ").bold()
+                + Text("top-notch results").bold()
                     .foregroundColor(.green)
             }
-            .bold()
             .frame(maxWidth: .infinity, alignment: .leading)
 
             ExamplePhotoGrid(photos: vm.goodExanples)
             Text("")
                 .frame(height: 50)
-
-            PhotosPicker(
-                selection: $selectedItems,
-                matching: .images
-            ) {
-                RedButton(title: .addPhoto)
-            }
         }
         .padding()
     }
 }
 
 
-// MARK: - Preview
 #Preview {
     ScrollView{
-        if #available(iOS 16.0, *) {
-            ExamplePhotosView(selectedItems: .constant([]))
-        } else {
-            // Fallback on earlier versions
-        }
+            ExamplePhotosView()
     }
 }
 
