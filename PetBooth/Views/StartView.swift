@@ -12,24 +12,13 @@ struct StartView: View {
     var body: some View {
         NavigationStack {
             ZStack{
-                //background
-                Color.black.ignoresSafeArea()
-                VStack {
-                    Image("Frame 7")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .overlay {
-                            RoundedRectangle(cornerRadius: 25.0)
-                                .fill(LinearGradient(colors: [.clear,  .black], startPoint: .top, endPoint: .bottom))
-                        }
-                    Spacer()
-                }.ignoresSafeArea()
+                // background
+                BackgroundLogo()
 
-                //MARK: - content START
-
+                // content
                 VStack{
                     Spacer()
-                    Image("Group 2")
+                    Image("WhiteLogo")
                         .resizable()
                         .scaledToFit()
                         .frame(width: UIScreen.main.bounds.width/2)
@@ -44,20 +33,11 @@ struct StartView: View {
                         .frame(width: UIScreen.main.bounds.width/1.3)
                         .padding(.vertical)
                         .multilineTextAlignment(.center)
-
                     NavigationLink(destination: MainTabView(uploadedPhotosViewModel: UploadedPhotosViewModel())) {
-                        Text("Continue")
-                            .frame(maxWidth: .infinity)
-                            .frame(height: (UIScreen.main.bounds.width)/6.72)
+                        RedButton(title: .continueTitle)
+                            .padding()
                     }
-                    .buttonStyle(.borderedProminent)
-                    .tint(.myRed)
-                    .padding(.vertical, 30)
-                    .padding(.horizontal)
-                    }
-                   
-                //MARK: - content END
-
+                }
             } // END: ZStack
         }
     }

@@ -19,7 +19,7 @@ struct RowView: View {
             Spacer()
             if let amount {
                 Text("₽")
-                    .foregroundStyle(.white)
+                    .foregroundColor(.white)
                     .font(.callout)
                     .padding(6)
                     .background {
@@ -29,9 +29,16 @@ struct RowView: View {
                 
                 Text(amount.description)
             }
+            Image(systemName: (text == "Product Information" || text == "Refund Information") ? "chevron.down" : "chevron.right")
+                .foregroundColor(.secondary)
+                .padding(.horizontal)
+                .opacity(image == "emailLogo" ? 0 : 1)
         }
-        .padding(.vertical, 1)
-        .padding(.horizontal, -6)
+        .padding(10)
+        .background(
+            RoundedRectangle(cornerRadius: 10)
+                .foregroundColor((text == "Product Information" || text == "Refund Information") ? .myInfoBackground :.myInfoRow)
+        )
     }
 }
 
