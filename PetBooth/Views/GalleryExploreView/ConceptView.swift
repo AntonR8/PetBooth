@@ -16,8 +16,7 @@ struct ConceptView: View {
 
     var body: some View {
         VStack {
-
-            Image(image)
+                Image(image)
                 .resizable()
                 .scaledToFit()
                 .clipShape(
@@ -44,30 +43,20 @@ struct ConceptView: View {
                     .padding(.vertical, 2)
                     Text(counter.description)
                         .font(.callout)
-
                 }
             }
 
             Button(action: {
                 selection = 1
             }, label: {
-                RoundedRectangle(cornerRadius: 10.0)
-                    .stroke(lineWidth: 1.0)
-                    .tint(.myRed)
-                    .overlay {
-                        Text("Create AI images with this concept")
-                            .foregroundStyle(.myRed)
-                    }
-                    .frame(maxWidth: .infinity)
-                    .frame(height: (UIScreen.main.bounds.width)/9.28)
+                StrokeButton(title: .createAIimagesWithThisConcept)
             })
             .padding(.vertical)
-
-
-        }.padding(.horizontal) // END: VStack
+        } // END: VStack
+        .padding()
     }
 }
 
-//#Preview {
-//    ConceptView(image: "image 15", name: "Teddy", text: "What’s Your Dream?", counter: 929, selection: .constant(1))
-//}
+#Preview {
+    ConceptView(image: "Concept1", name: "Teddy", text: "Whats Your Dream?", counter: 929, selection: .constant(2))
+}

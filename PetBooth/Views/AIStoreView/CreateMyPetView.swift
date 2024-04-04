@@ -10,58 +10,43 @@ import SwiftUI
 struct CreateMyPetView: View {
     let imageName: String
     let imageText: String
+    
     var body: some View {
-        ZStack{
-            //background
-
-            Image(imageName)
-                .resizable()
-                .scaledToFit()
-//                .frame(maxHeight: 310)
-                .clipShape(
+        // background with Photo:
+        Image(imageName)
+            .resizable()
+            .scaledToFit()
+            .clipShape(
+                RoundedRectangle(cornerRadius: 25.0)
+            )
+            .overlay {
+                ZStack {
                     RoundedRectangle(cornerRadius: 25.0)
-                )
+                        .fill(LinearGradient(colors: [.clear, .clear, .clear, .black], startPoint: .top, endPoint: .bottom))
 
-            //MARK: - content START
-                .overlay {
-
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 25.0)
-                            .fill(LinearGradient(colors: [.clear, .clear, .clear, .black], startPoint: .top, endPoint: .bottom))
-                        VStack(alignment: .leading) {
-                            Spacer()
-                            Text(imageText)
-                                .foregroundStyle(.white)
-                                .font(.title2)
-                                .bold()
-                                .padding(.horizontal, 16)
-                            Text("60 AI profile photos • For dogs and cats")
-                                .foregroundStyle(.white)
-                                .font(.subheadline)
-                                .padding(.horizontal, 16)
-                                .padding(.vertical, -10)
-                                .multilineTextAlignment(.center)
-
-                            NavigationLink(destination: MainTabView(selected: 2, uploadedPhotosViewModel: UploadedPhotosViewModel())) {
-                                Text("Create with My Pet")
-                                    .frame(maxWidth: .infinity)
-                                    .frame(height: (UIScreen.main.bounds.width)/9.28)
-                            }
-                            .buttonStyle(.borderedProminent)
-                            .tint(.white)
-                            .foregroundStyle(.black)
+                    // content:
+                    VStack(alignment: .leading) {
+                        Spacer()
+                        Text(imageText)
                             .bold()
-                            .padding()
-
+                            .foregroundStyle(.white)
+                            .font(.title2)
+                            .padding(.horizontal)
+                        Text("60 AI profile photos • For dogs and cats")
+                            .foregroundStyle(.white)
+                            .font(.subheadline)
+                            .padding(.horizontal)
+                            .multilineTextAlignment(.center)
+                        NavigationLink(destination: MainTabView(selected: 2, uploadedPhotosViewModel: UploadedPhotosViewModel())) {
+                            WhiteButton(title: .createWithMyPet)
                         }
+
                     }
                 }
-            //MARK: - content END
-
-        } // END: ZStack
+            }
     }
 }
 
 #Preview {
-    CreateMyPetView(imageName: "image 10", imageText: "Lookbook concept")
+    CreateMyPetView(imageName: "CartoonCharacters", imageText: "Lookbook concept")
 }

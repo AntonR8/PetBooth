@@ -10,33 +10,18 @@ import SwiftUI
 struct WhatIsYourNameView: View {
     @State private var text: String = ""
     var body: some View {
-        NavigationStack {
+        NavigationView {
             VStack {
-                HStack {
-                    Rectangle()
-                        .frame(width: UIScreen.main.bounds.width/3, height: 6)
-                    .foregroundStyle(LinearGradient(colors: [.purple, .pink], startPoint: .leading, endPoint: .trailing))
-                    Spacer()
-                } .frame(width: UIScreen.main.bounds.width, height: 6)
+                ProgressAndTitle(progress: 1/3, title: "What is your pet's name?")
                 VStack(alignment: .leading) {
-                    Text("What is your pet's name?")
-                        .font(.largeTitle)
-                        .bold()
-                        .padding(.horizontal)
                     TextField("Enter your pet’s name", text: $text)
-                        .padding()
-                    Divider().padding(.horizontal)
-
+                    Divider()
+                    Spacer()
+                    NavigationLink(destination: WhatIsYourPetsColorVIew()) {
+                        RedButton(title: .continueTitle, color: text.count < 2 ? .gray : .myRed)
+                    }
+                    .disabled(text.count < 2)
                 }
-                Spacer()
-                NavigationLink(destination: WhatIsYourPetsColorVIew()) {
-                    Text("Continue")
-                        .frame(maxWidth: .infinity)
-                        .frame(height: (UIScreen.main.bounds.width-32)/6)
-                }
-                .disabled(text.count < 2)
-                .buttonStyle(.borderedProminent)
-                .tint(text.count < 2 ? .gray : .myRed)
                 .padding()
             }
         }

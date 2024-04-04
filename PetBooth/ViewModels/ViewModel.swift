@@ -6,59 +6,61 @@
 //
 
 import Foundation
-import Observation
 import PhotosUI
 import SwiftUI
 
-@Observable
-class ViewModel {
+//главная ViewModel, которая содержит все данные, которые изначально загружены в приложение
+final class ViewModel {
+
+    let aiStoreUnits: [CreateMyPetModel] // данные для AIStoreView
+    let conceptUnits: [ConceptModel] // данные для GalleryExploreView - AlbumView
+
+    let myInfoRows: [MyInfoRowModel] // данные для MyInfoView
     
-    let aiStoreUnits: [CreateMyPetModel]
-    let conceptUnits: [ConceptModel]
-  
-    
-    var myInfoRows: [MyInfoRowModel]
-    let examplePhotos1: [String] = ["image 17", "image 18", "image 19", "image 20"]
-    let examplePhotos2: [String] = ["dog-dachshund-astronaut-in-the-city 1", "dog-in-the-city--water 1", "image 30", "image 31"]
-    let badExamples: [PhotoExampleModel]
-    let goodExanples: [PhotoExampleModel]
-    
+    let examplePhotos1: [UIImage] // данные для BeforeYouStartView
+    let examplePhotos2: [UIImage] // данные для BeforeYouStartView
+
+    let badExamples: [PhotoExampleModel] // данные для ExamplePhotosView
+    let goodExanples: [PhotoExampleModel] // данные для ExamplePhotosView
+
     init() {
         self.aiStoreUnits = [
-            CreateMyPetModel(image: "image 12-3", name: "Cartoon Characters"),
-            CreateMyPetModel(image: "image 12", name: "What’s Your Dream?"),
-            CreateMyPetModel(image: "image 10", name: "Lookbook concept"),
-            CreateMyPetModel(image: "image 12-2", name: "Color pop concept")
+            CreateMyPetModel(image: "CartoonCharacters", name: "Cartoon Characters"),
+            CreateMyPetModel(image: "What’sYourDream?", name: "What’s Your Dream?"),
+            CreateMyPetModel(image: "LookbookConcept", name: "Lookbook concept"),
+            CreateMyPetModel(image: "ColorPopConcept", name: "Color pop concept")
         ]
         
         self.conceptUnits = [
-            ConceptModel(image: "image 15", name: "Teddy", text: "What’s Your Dream?", counter: 929),
-            ConceptModel(image: "image 16", name: "Teddy", text: "What’s Your Dream?", counter: 929),
-            ConceptModel(image: "image 2", name: "Teddy", text: "What’s Your Dream?", counter: 929)
+            ConceptModel(image: "Concept1", name: "Teddy", text: "What’s Your Dream?", counter: 929),
+            ConceptModel(image: "Concept2", name: "Teddy", text: "What’s Your Dream?", counter: 929),
+            ConceptModel(image: "Concept3", name: "Teddy", text: "What’s Your Dream?", counter: 929)
         ]
-        
-         
+
         self.myInfoRows = [
-            MyInfoRowModel(image: "Frame 41943", text: "Point shop", amount: 0),
-            MyInfoRowModel(image: "Frame 41943-3", text: "Usage history", amount: nil),
-            MyInfoRowModel(image: "Frame 41943-4", text: "FAQ", amount: nil),
-            MyInfoRowModel(image: "Frame 41943-5", text: "Contact Us", amount: nil),
-            MyInfoRowModel(image: "Frame 41943-6", text: "Terms of Use", amount: nil),
-            MyInfoRowModel(image: "Frame 41943-7", text: "Privacy Policy", amount: nil)
+            MyInfoRowModel(image: "PointShop", text: "Point shop", amount: 0),
+            MyInfoRowModel(image: "UsageHistory", text: "Usage history", amount: nil),
+            MyInfoRowModel(image: "FAQ", text: "FAQ", amount: nil),
+            MyInfoRowModel(image: "ContactUs", text: "Contact Us", amount: nil),
+            MyInfoRowModel(image: "TermsOfUse", text: "Terms of Use", amount: nil),
+            MyInfoRowModel(image: "PrivacyPolicy", text: "Privacy Policy", amount: nil)
         ]
-        
+
+        self.examplePhotos1 = [UIImage(imageLiteralResourceName: "ResultExample1"), UIImage(imageLiteralResourceName: "ResultExample2"), UIImage(imageLiteralResourceName: "ResultExample3"), UIImage(imageLiteralResourceName: "ResultExample4")]
+        self.examplePhotos2 = [UIImage(imageLiteralResourceName: "ResultExample5"), UIImage(imageLiteralResourceName: "ResultExample6"), UIImage(imageLiteralResourceName: "ResultExample7"), UIImage(imageLiteralResourceName: "ResultExample8")]
+
         self.badExamples = [
-            PhotoExampleModel(image: "image 21", text: "Humans in the photo", isAppropriate: false),
-            PhotoExampleModel(image: "image 22", text: "Covered  face / body", isAppropriate: false),
-            PhotoExampleModel(image: "image 23", text: "More than one pet", isAppropriate: false),
-            PhotoExampleModel(image: "image 24", text: "Too far away", isAppropriate: false),
+            PhotoExampleModel(image: "Humans in the photo", text: "Humans in the photo", isAppropriate: false),
+            PhotoExampleModel(image: "Covered  face  body", text: "Covered  face / body", isAppropriate: false),
+            PhotoExampleModel(image: "More than one pet", text: "More than one pet", isAppropriate: false),
+            PhotoExampleModel(image: "Too far away", text: "Too far away", isAppropriate: false),
         ]
         
         self.goodExanples = [
-            PhotoExampleModel(image: "image 26", text: "Close-up front shots", isAppropriate: true),
-            PhotoExampleModel(image: "image 27", text: "Clear full-body shots", isAppropriate: false),
+            PhotoExampleModel(image: "Close-up front shots", text: "Close-up front shots", isAppropriate: true),
+            PhotoExampleModel(image: "Clear full-body shots", text: "Clear full-body shots", isAppropriate: false),
             PhotoExampleModel(image: "Frame 41950", text: "Same and only pet", isAppropriate: false),
-            PhotoExampleModel(image: "image 25", text: "From various angles", isAppropriate: true),
+            PhotoExampleModel(image: "From various angles", text: "From various angles", isAppropriate: true),
         ]
         
   
