@@ -9,13 +9,11 @@ import Foundation
 import PhotosUI
 import SwiftUI
 
-
 // ViewModel для данных, загружемых пользователем
 
 
 @available(iOS 16.0, *)
 class UploadedPhotosViewModel: ObservableObject {
-    @Published var petsName: String = "" // имя питомца
     @Published var uploadedImages: [UIImage] = [] // загруженные изображения
     @Published var selectedItems: [PhotosPickerItem] = [] { // изображения, отмеченные для загрузки
         didSet {

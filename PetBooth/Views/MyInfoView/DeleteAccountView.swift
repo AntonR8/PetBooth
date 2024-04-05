@@ -13,7 +13,7 @@ struct DeleteAccountView: View {
             Text("Delete account")
                 .bold()
                 .font(.title)
-                .foregroundStyle(.myRed)
+                .foregroundColor(.myRed)
                 .padding()
             Text("Open up the Setting app in your iPhone and tap on your name at the top. Then press Password & Security, then Apple ID login They listed all the apps there and you can delete any of them to revoke access.")
         }

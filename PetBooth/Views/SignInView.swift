@@ -15,7 +15,6 @@ struct SignInView: View {
      BackgroundLogo()
 
             // content:
-
             VStack{
                 Spacer()
                 Image("WhiteLogo")

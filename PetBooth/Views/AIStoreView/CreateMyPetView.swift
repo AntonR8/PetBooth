@@ -12,38 +12,32 @@ struct CreateMyPetView: View {
     let imageText: String
     
     var body: some View {
-        // background with Photo:
-        Image(imageName)
-            .resizable()
-            .scaledToFit()
-            .clipShape(
-                RoundedRectangle(cornerRadius: 25.0)
-            )
-            .overlay {
-                ZStack {
+        ZStack {
+            Image(imageName)
+                .resizable()
+                .scaledToFit()
+                .clipShape(
                     RoundedRectangle(cornerRadius: 25.0)
-                        .fill(LinearGradient(colors: [.clear, .clear, .clear, .black], startPoint: .top, endPoint: .bottom))
-
-                    // content:
-                    VStack(alignment: .leading) {
-                        Spacer()
-                        Text(imageText)
-                            .bold()
-                            .foregroundStyle(.white)
-                            .font(.title2)
-                            .padding(.horizontal)
-                        Text("60 AI profile photos • For dogs and cats")
-                            .foregroundStyle(.white)
-                            .font(.subheadline)
-                            .padding(.horizontal)
-                            .multilineTextAlignment(.center)
-                        NavigationLink(destination: MainTabView(selected: 2)) {
-                            WhiteButton(title: .createWithMyPet)
-                        }
-
-                    }
-                }
+                )
+            VStack(alignment: .leading) {
+                Spacer()
+                Text(imageText)
+                    .bold()
+                    .foregroundColor(.white)
+                    .font(.title2)
+                    .padding(.horizontal)
+                Text("60 AI profile photos • For dogs and cats")
+                    .foregroundColor(.white)
+                    .font(.subheadline)
+                    .padding(.horizontal)
+                    .multilineTextAlignment(.center)
+                NavigationLink(destination:
+                                MainTabView(selected: 2)) {
+                    WhiteButton(title: .createWithMyPet) }
+                Text("")
             }
+        }
+        .frame(height: UIScreen.main.bounds.width*310/350)
     }
 }
 

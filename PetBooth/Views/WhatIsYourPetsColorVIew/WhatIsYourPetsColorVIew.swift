@@ -14,30 +14,30 @@ enum ChosenColors {
 struct WhatIsYourPetsColorVIew: View {
     @State var chosenColor: ChosenColors?
     var body: some View {
-        NavigationView {
+
             VStack {
                 ProgressAndTitle(progress: 2/3, title: "Please tell us your pet’s color")
 
                 Text("This helps our AI learn more efficiently!")
-                    .foregroundStyle(.secondary)
+                    .foregroundColor(.secondary)
                     .padding(.vertical, 6)
                     .frame(maxWidth: .infinity, alignment: .leading)
 
                 VStack {
                     HStack {
-                        ColorChooseRectangle(chosenColor: $chosenColor, text: "Pure White", image: "WhitePetColor")
-                            .foregroundStyle(chosenColor == .white ? .red : .secondary)
+                        ColorChooseRectangle(text: "Pure White", image: "WhitePetColor")
+                            .foregroundColor(chosenColor == .white ? .red : .secondary)
                             .onTapGesture {
                                 chosenColor = .white
                             }
-                        ColorChooseRectangle(chosenColor: $chosenColor, text: "Pure Black", image: "BlackPetColor")
-                            .foregroundStyle(chosenColor == .black ? .red : .secondary)
+                        ColorChooseRectangle(text: "Pure Black", image: "BlackPetColor")
+                            .foregroundColor(chosenColor == .black ? .red : .secondary)
                             .onTapGesture {
                                 chosenColor = .black
                             }
                     }
-                    ColorChooseRectangle(chosenColor: $chosenColor, text: "Other colors or patterns", comment: "Including black and white pattern", image: "OtherPetColor")
-                        .foregroundStyle(chosenColor == .other ? .red : .secondary)
+                    ColorChooseRectangle(text: "Other colors or patterns", comment: "Including black and white pattern", image: "OtherPetColor")
+                        .foregroundColor(chosenColor == .other ? .red : .secondary)
                         .onTapGesture {
                             chosenColor = .other
                         }
@@ -61,8 +61,9 @@ struct WhatIsYourPetsColorVIew: View {
 
 
             }
+            .navigationBarHidden(true)
             .padding()
-        }
+
     }
 }
 

@@ -11,64 +11,66 @@ struct PriceRectangle: View {
     var oldPrice: Int
     var newPrice: Int
     var body: some View {
-        RoundedRectangle(cornerRadius: 25.0)
-            .stroke(lineWidth: 2)
-            .foregroundStyle(.myRed)
-            .frame(height: 124)
-            .overlay {
-                VStack {
-                    HStack {
-                        Text("STANDART")
-                            .bold()
-                            .foregroundStyle(.myRed)
-                        Spacer()
-                        Image(systemName: "checkmark")
-                            .padding(3)
-                            .foregroundStyle(.white)
-                            .background(
-                                Circle()
-                                    .fill(.myRed)
-                            )
+        ZStack{
+            // background:
+            RoundedRectangle(cornerRadius: 25.0)
+                .stroke(lineWidth: 2)
+                .foregroundColor(.myRed)
+                .frame(height: 124)
 
-                    }
-                    .padding(.vertical, 5)
-                    .padding(.horizontal, 20)
+            // content:
+            VStack {
+                HStack {
+                    Text("STANDART")
+                        .bold()
+                        .foregroundColor(.myRed)
+                    Spacer()
+                    Image(systemName: "checkmark")
+                        .padding(3)
+                        .foregroundColor(.white)
+                        .background(
+                            Circle()
+                                .fill(.myRed)
+                        )
+                }
+                .padding(.vertical, 5)
+                .padding(.horizontal, 20)
 
-                    HStack {
-                        Text("Including black and white pattern")
-                            .font(.footnote)
-                            .foregroundStyle(.secondary)
-                        Spacer()
-                    }
-                    .padding(.horizontal)
+                HStack {
+                    Text("Including black and white pattern")
+                        .font(.footnote)
+                        .foregroundColor(.secondary)
+                    Spacer()
+                }
+                .padding(.horizontal)
 
-                    HStack {
-                        Spacer()
+                HStack {
+                    Spacer()
+                    ZStack {
+                        /*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/.fill(.myRed)
+                            .frame(width: 16)
                         Text("₽")
-                            .foregroundStyle(.white)
-                            .font(.caption)
-                            .padding(4)
-                            .background {
-                                Circle()
-                                    .fill(.gray)
-                        }
-                        Text("\(oldPrice)₽   ")
-                            .font(.callout)
-                            .strikethrough()
-                            .foregroundStyle(.gray)
+                            .foregroundColor(.gray)
+                            .font(.system(size: 11))
+                    }
+                    Text("\(1550)₽   ")
+                        .font(.callout)
+                        .strikethrough()
+                        .foregroundColor(.gray)
+
+                    ZStack {
+                        /*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/.fill(.myRed)
+                            .frame(width: 20)
                         Text("₽")
-                            .foregroundStyle(.white)
-                            .font(.callout)
-                            .padding(6)
-                            .background {
-                                Circle()
-                                    .fill(.myRed)
-                        }
-                        Text("\(newPrice)₽")
-                            .bold()
-                    }.padding(.horizontal)
-                }.padding()
-            }.padding(.vertical)
+                            .foregroundColor(.white)
+                            .font(.system(size: 15))
+                    }
+
+                    Text("\(880)₽")
+                        .bold()
+                }.padding(.horizontal)
+            }.padding()
+        }.padding(.vertical)
     }
 }
 

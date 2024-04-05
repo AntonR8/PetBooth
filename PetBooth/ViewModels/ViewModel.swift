@@ -59,7 +59,7 @@ final class ViewModel {
         self.goodExanples = [
             PhotoExampleModel(image: "Close-up front shots", text: "Close-up front shots", isAppropriate: true),
             PhotoExampleModel(image: "Clear full-body shots", text: "Clear full-body shots", isAppropriate: false),
-            PhotoExampleModel(image: "Frame 41950", text: "Same and only pet", isAppropriate: false),
+            PhotoExampleModel(image: "Same and only pet", text: "Same and only pet", isAppropriate: false),
             PhotoExampleModel(image: "From various angles", text: "From various angles", isAppropriate: true),
         ]
         

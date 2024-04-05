@@ -18,30 +18,33 @@ struct ExamplePhotoGrid: View {
         LazyVGrid (columns: myColumns) {
             ForEach(photos) {photo in
                 VStack(alignment: .leading) {
-                    Image(photo.image)
-                        .resizable()
-                        .scaledToFit()
-                        .clipShape(RoundedRectangle(cornerRadius: 25.0))
-                        .overlay(alignment: .topLeading, content: {
-                            if photo.isAppropriate {
-                                Image(systemName: "checkmark")
-                                    .padding(3)
-                                    .foregroundStyle(.white)
-                                    .background(
-                                        Circle()
-                                            .fill(.green)
-                                    )
-                                    .padding(10)
-                            }
-                        })
+                    VStack(alignment: .trailing) {
+                        Image(systemName: photo.isAppropriate ? "checkmark" : "")
+                            .padding(3)
+                            .foregroundColor(.white)
+                            .background(
+                                Circle()
+                                    .fill(photo.isAppropriate ? .green : .clear)
+                            )
+                            .padding(10)
+                            .frame(maxWidth: .infinity, alignment: .trailing)
+                        Spacer()
+                    }.padding()
+                        .frame(width: UIScreen.main.bounds.width*169/390, height: UIScreen.main.bounds.width*169/390)
+                    .background(
+                        Image(photo.image)
+                            .resizable()
+                            .scaledToFit()
+                            .clipShape(RoundedRectangle(cornerRadius: 25.0))
+                    )
                     Text(photo.text)
                         .font(.caption)
-                }.padding(4)
+                }
             }
         }
     }
 }
 
 #Preview {
-    ExamplePhotoGrid(photos: ViewModel().badExamples)
+    ExamplePhotoGrid(photos: ViewModel().goodExanples)
 }

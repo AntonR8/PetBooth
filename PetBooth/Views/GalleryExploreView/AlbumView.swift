@@ -11,11 +11,11 @@ import SwiftUI
 struct AlbumView: View {
     var  uploadedPhotosViewModel: UploadedPhotosViewModel
     let text: String
-
+    let petsName: String
+    
     var body: some View {
         VStack(alignment: .leading){
-
-            Text(uploadedPhotosViewModel.petsName)
+            Text(petsName)
                 .font(.title)
                 .bold()
                 .padding(.vertical, 6)

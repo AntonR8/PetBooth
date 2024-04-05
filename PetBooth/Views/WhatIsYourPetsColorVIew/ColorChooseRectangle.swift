@@ -8,23 +8,22 @@
 import SwiftUI
 
 struct ColorChooseRectangle: View {
-    @Binding var chosenColor: ChosenColors?
     var text: String
     var comment: String?
     var image: String
     var body: some View {
-        RoundedRectangle(cornerRadius: 25.0)
+        RoundedRectangle(cornerRadius: 15)
             .stroke(lineWidth: 1)
             .frame(height: comment == nil ? UIScreen.main.bounds.width/3.9 : UIScreen.main.bounds.width/3.145)
             .padding(4)
-            .overlay {
+            .background (
                 HStack {
                     VStack(alignment: .leading) {
                         Text(text)
                         if let comment {
                             Text(comment)
                                 .font(.footnote)
-                                .foregroundStyle(.secondary)
+                                .foregroundColor(.secondary)
                                 .padding(.vertical, 1)
                         }
                         Image(image)
@@ -34,16 +33,16 @@ struct ColorChooseRectangle: View {
                     .padding(25)
                     Spacer()
                 }
-            }
+            )
     }
 }
 
 #Preview {
     VStack {
         HStack {
-            ColorChooseRectangle(chosenColor: .constant(ChosenColors.white), text: "Pure White", image: "WhitePetColor")
-            ColorChooseRectangle(chosenColor: .constant(ChosenColors.white), text: "Pure Black", image: "BlackPetColor")
+            ColorChooseRectangle(text: "Pure White", image: "WhitePetColor")
+            ColorChooseRectangle(text: "Pure Black", image: "BlackPetColor")
         }
-        ColorChooseRectangle(chosenColor: .constant(ChosenColors.white), text: "Pure White", comment: "Including black and white pattern", image: "OtherPetColor")
+        ColorChooseRectangle(text: "Pure White", comment: "Including black and white pattern", image: "OtherPetColor")
     }.padding()
 }

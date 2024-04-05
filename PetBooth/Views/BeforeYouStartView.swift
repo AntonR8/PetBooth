@@ -14,13 +14,12 @@ struct BeforeYouStartView: View {
     ]
     let vm = ViewModel()
     var body: some View {
-        NavigationView {
             ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: false, content: {
                 VStack(alignment: .leading) {
                     Text("Discover the magical AI-generated pictures of your beloved dog / cat")
                         .bold()
                     Text("Create a AI picture of your furry friend, using a few photos you’ve taken in the past.")
-                        .foregroundStyle(.secondary)
+                        .foregroundColor(.secondary)
                         .padding(.vertical, 6)
                 }
 
@@ -36,11 +35,11 @@ struct BeforeYouStartView: View {
                     .padding(.vertical)
 
                     Text("Our AI is constantly learning, which means some of its results may not be perfect. We appreciate your understanding of possible imperfections, and by continuing, you agree to accept the results.")
-                        .foregroundStyle(.secondary)
+                        .foregroundColor(.secondary)
                        
                 }
 
-                PhotoGrid(images: vm.examplePhotos1)
+                PhotoGrid(images: vm.examplePhotos2)
                     .padding(.vertical)
 
                 NavigationLink(destination: WhatIsYourNameView()) {
@@ -50,8 +49,9 @@ struct BeforeYouStartView: View {
 
             })
             .navigationTitle("Before you start")
+            .navigationBarHidden(true)
             .padding()
-        }
+
     }
 }
 

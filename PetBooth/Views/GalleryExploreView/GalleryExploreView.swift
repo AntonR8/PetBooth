@@ -10,13 +10,9 @@ import SwiftData
 
 struct GalleryExploreView: View {
     let vm = ViewModel()
-    
-    @State var selection = 2 
-    var color: UIColor = .red
-
+    @State var selection = 2
     
     var body: some View {
-        NavigationView {
             ZStack {
                 switch selection {
                 case 1: AddImagesView()
@@ -26,9 +22,9 @@ struct GalleryExploreView: View {
                 VStack {
                     PickerView(selection: $selection)
                     Spacer()
-                }
             }
         }
+            .navigationBarHidden(true)
     }
 }
 

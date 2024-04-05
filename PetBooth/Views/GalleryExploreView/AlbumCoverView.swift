@@ -24,7 +24,7 @@ struct AlbumCoverView: View {
                 .padding(30)
             LazyVGrid(columns: myColumns) {
                 NavigationLink {
-                    AlbumView(uploadedPhotosViewModel: uploadedPhotosViewModel, text: text)
+                    AlbumView(uploadedPhotosViewModel: uploadedPhotosViewModel, text: text, petsName: petName) 
                 } label: {
                     if let image = uploadedPhotosViewModel.uploadedImages.first {
                         Image(uiImage: image)

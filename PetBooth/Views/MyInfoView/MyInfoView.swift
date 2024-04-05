@@ -20,7 +20,7 @@ struct MyInfoView: View {
                 Color.myInfoBackground.ignoresSafeArea()
 
                 // content:
-                ScrollView {
+                ScrollView(showsIndicators: false) {
                         Text("My Info")
                             .font(.title)
                             .bold()

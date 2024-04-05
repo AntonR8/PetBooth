@@ -15,7 +15,8 @@ struct ProgressAndTitle: View {
             HStack {
                 Rectangle()
                     .frame(width: UIScreen.main.bounds.width*progress, height: 6)
-                    .foregroundStyle(LinearGradient(colors: [.purple, .pink], startPoint: .leading, endPoint: .trailing))
+                    .foregroundColor(.clear)
+                    .background(LinearGradient(colors: [.purple, .pink], startPoint: .leading, endPoint: .trailing))
                 Spacer()
             }
             .frame(width: UIScreen.main.bounds.width, height: 6)

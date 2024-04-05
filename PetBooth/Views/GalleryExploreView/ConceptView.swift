@@ -39,7 +39,7 @@ struct ConceptView: View {
                     Button(action: {}, label: {
                         Image(systemName: "heart")
                     })
-                    .foregroundStyle(.black)
+                    .foregroundColor(.black)
                     .padding(.vertical, 2)
                     Text(counter.description)
                         .font(.callout)

@@ -22,11 +22,11 @@ struct RowView: View {
                     .foregroundColor(.white)
                     .font(.callout)
                     .padding(6)
-                    .background {
+                    .background (
                         Circle()
                             .fill(.red)
-                    }
-                
+                    )
+
                 Text(amount.description)
             }
             Image(systemName: (text == "Product Information" || text == "Refund Information") ? "chevron.down" : "chevron.right")

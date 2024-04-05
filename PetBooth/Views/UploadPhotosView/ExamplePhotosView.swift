@@ -15,7 +15,7 @@ struct ExamplePhotosView: View {
         VStack(alignment: .leading) {
 
             Text("Better photo, Better result! Check our guide for a paw-fect pic!")
-                .foregroundStyle(.secondary)
+                .foregroundColor(.secondary)
                 .padding(.vertical, 6)
 
             Group {
