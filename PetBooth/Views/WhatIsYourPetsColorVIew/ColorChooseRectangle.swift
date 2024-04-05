@@ -13,9 +13,9 @@ struct ColorChooseRectangle: View {
     var comment: String?
     var image: String
     var body: some View {
-        RoundedRectangle(cornerRadius: 25.0)
+        RoundedRectangle(cornerRadius: 15.0)
             .stroke(lineWidth: 1)
-            .frame(height: comment == nil ? UIScreen.main.bounds.width/3.9 : UIScreen.main.bounds.width/3.145)
+            .frame(height: comment == nil ? UIScreen.main.bounds.width/3.9 : UIScreen.main.bounds.width/3)
             .padding(4)
             .overlay {
                 HStack {

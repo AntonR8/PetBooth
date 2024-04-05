@@ -9,8 +9,7 @@ import SwiftUI
 
 struct MyInfoView: View {
     let vm = ViewModel()
-   @State var email = "sdfdsf"
-//    @AppStorage("email") var email = ""
+    @AppStorage("email") var email = ""
     @State var showSheet = false
 
     var body: some View {
