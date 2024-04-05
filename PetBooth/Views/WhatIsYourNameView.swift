@@ -10,7 +10,6 @@ import SwiftUI
 struct WhatIsYourNameView: View {
     @State private var text: String = ""
     var body: some View {
-        NavigationView {
             VStack {
                 ProgressAndTitle(progress: 1/3, title: "What is your pet's name?")
                 VStack(alignment: .leading) {
@@ -24,7 +23,6 @@ struct WhatIsYourNameView: View {
                 }
                 .padding()
             }
-        }
     }
 }
 

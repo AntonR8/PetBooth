@@ -14,7 +14,6 @@ struct BeforeYouStartView: View {
     ]
     let vm = ViewModel()
     var body: some View {
-        NavigationView {
             ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: false, content: {
                 VStack(alignment: .leading) {
                     Text("Discover the magical AI-generated pictures of your beloved dog / cat")
@@ -51,7 +50,7 @@ struct BeforeYouStartView: View {
             })
             .navigationTitle("Before you start")
             .padding()
-        }
+
     }
 }
 

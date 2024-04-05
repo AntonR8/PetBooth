@@ -9,7 +9,6 @@ import SwiftUI
 
 struct CreateAlbumView: View {
     var body: some View {
-            NavigationView {
                 VStack {
                     ProgressAndTitle(progress: 1, title: "Create Album")
                     
@@ -40,12 +39,11 @@ struct CreateAlbumView: View {
                     .font(.caption)
                     
                     Spacer()
-                    NavigationLink(destination: MainTabView(selected: 2, albumSelected: 1)) {
+                    NavigationLink(destination: GalleryExploreView(selection: 1)) {
                         RedButton(title: .createAlbum)
                     }
                 }
                 .padding()
-            }
         }
     }
 

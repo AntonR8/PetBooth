@@ -16,7 +16,6 @@ struct GalleryExploreView: View {
 
     
     var body: some View {
-        NavigationView {
             ZStack {
                 switch selection {
                 case 1: AddImagesView()
@@ -28,7 +27,7 @@ struct GalleryExploreView: View {
                     Spacer()
                 }
             }
-        }
+            .navigationBarBackButtonHidden(true)
     }
 }
 

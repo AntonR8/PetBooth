@@ -15,15 +15,12 @@ struct MainTabView: View {
     var body: some View {
         TabView(selection: $selected) {
 
-            //MARK: - вкладка 1
             AIStoreView()
                 .tabItem {
                     Image(systemName: "character.cursor.ibeam")
                     Text("AI Store")
                 }
                 .tag(1)
-
-            //MARK: - вкладка 2
 
             GalleryExploreView(selection: albumSelected ?? 2)
                 .tabItem {
@@ -32,8 +29,6 @@ struct MainTabView: View {
                 }
                 .tag(2)
 
-            //MARK: - вкладка 3
-
             MyInfoView()
                 .tabItem {
                     Image(systemName: "person")
@@ -41,9 +36,7 @@ struct MainTabView: View {
                 }
                 .tag(3)
 
-            //MARK: - END TabView
         }
-        .navigationBarHidden(true)
     }
 }
 

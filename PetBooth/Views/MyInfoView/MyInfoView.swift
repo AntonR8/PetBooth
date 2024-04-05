@@ -13,8 +13,6 @@ struct MyInfoView: View {
     @State var showSheet = false
 
     var body: some View {
-
-        NavigationView {
             ZStack {
                 // background:
                 Color.myInfoBackground.ignoresSafeArea()
@@ -59,7 +57,6 @@ struct MyInfoView: View {
                     }
                 }.padding()
             }
-        }
     }
 }
 

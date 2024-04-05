@@ -19,7 +19,6 @@ struct UploadPhotosViewiOS16: View {
     ]
 
     var body: some View {
-        NavigationView {
             ZStack{
                 ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: false, content: {
                     ProgressAndTitle(progress: 1, title: "Upload photos")
@@ -73,7 +72,6 @@ struct UploadPhotosViewiOS16: View {
                         .padding()
                 })
             }
-        }
     }
 }
 
